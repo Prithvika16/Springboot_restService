@@ -397,3 +397,61 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-07-09 14:20:04.516  INFO 32384 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-07-09 14:20:04.532  INFO 32384 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
 2025-07-09 15:57:37.496  INFO 32384 --- [http-nio-8080-exec-5] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 16:11:01.383  INFO 32384 --- [http-nio-8080-exec-7] c.p.controller.LibraryController         : Book already exists, skipping creation
+2025-07-09 16:23:57.297  INFO 35868 --- [main] .p.SpringBootRestServiceApplicationTests : Starting SpringBootRestServiceApplicationTests on ASCINLAP61557 with PID 35868 (started by prithvika.v in C:\Users\prithvika.v\eclipse-workspace\SpringBootRestService2)
+2025-07-09 16:23:57.299  INFO 35868 --- [main] .p.SpringBootRestServiceApplicationTests : The following profiles are active: @activatedProperties@
+2025-07-09 16:23:59.664  INFO 35868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2025-07-09 16:23:59.782  INFO 35868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94ms. Found 1 JPA repository interfaces.
+2025-07-09 16:24:01.721  INFO 35868 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2025-07-09 16:24:01.857  INFO 35868 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-09 16:24:02.173  INFO 35868 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2025-07-09 16:24:02.367  INFO 35868 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2025-07-09 16:24:02.657  WARN 35868 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-09 16:24:03.137  INFO 35868 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-09 16:24:04.962  INFO 35868 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-09 16:24:05.003  INFO 35868 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2025-07-09 16:24:06.247  INFO 35868 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-09 16:24:06.264  INFO 35868 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 16:24:06.479  INFO 35868 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-07-09 16:24:06.480  INFO 35868 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-07-09 16:24:06.509  INFO 35868 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-07-09 16:24:06.576  INFO 35868 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 95 ms
+2025-07-09 16:24:06.636  INFO 35868 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2025-07-09 16:24:06.637  INFO 35868 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2025-07-09 16:24:06.680  INFO 35868 --- [main] .p.SpringBootRestServiceApplicationTests : Started SpringBootRestServiceApplicationTests in 9.838 seconds (JVM running for 11.792)
+2025-07-09 16:24:07.134  INFO 35868 --- [main] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 16:24:07.545  INFO 35868 --- [main] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 16:24:07.584  INFO 35868 --- [main] c.p.controller.LibraryController         : Book is deleted
+2025-07-09 16:24:07.783  INFO 35868 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 16:24:07.789  INFO 35868 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2025-07-09 16:24:07.790  INFO 35868 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-09 16:24:07.821  INFO 35868 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-09 16:24:15.182  INFO 32384 --- [http-nio-8080-exec-2] c.p.controller.LibraryController         : Book already exists, skipping creation
+2025-07-09 16:25:36.349  INFO 30224 --- [main] .p.SpringBootRestServiceApplicationTests : Starting SpringBootRestServiceApplicationTests on ASCINLAP61557 with PID 30224 (started by prithvika.v in C:\Users\prithvika.v\eclipse-workspace\SpringBootRestService2)
+2025-07-09 16:25:36.350  INFO 30224 --- [main] .p.SpringBootRestServiceApplicationTests : The following profiles are active: @activatedProperties@
+2025-07-09 16:25:38.667  INFO 30224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2025-07-09 16:25:38.798  INFO 30224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110ms. Found 1 JPA repository interfaces.
+2025-07-09 16:25:40.436  INFO 30224 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2025-07-09 16:25:40.565  INFO 30224 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-09 16:25:40.758  INFO 30224 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2025-07-09 16:25:40.899  INFO 30224 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2025-07-09 16:25:41.084  WARN 30224 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-09 16:25:41.770  INFO 30224 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-09 16:25:43.330  INFO 30224 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-09 16:25:43.444  INFO 30224 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2025-07-09 16:25:44.628  INFO 30224 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-09 16:25:44.650  INFO 30224 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 16:25:44.922  INFO 30224 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-07-09 16:25:44.923  INFO 30224 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-07-09 16:25:44.955  INFO 30224 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-07-09 16:25:45.006  INFO 30224 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 82 ms
+2025-07-09 16:25:45.047  INFO 30224 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2025-07-09 16:25:45.048  INFO 30224 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2025-07-09 16:25:45.079  INFO 30224 --- [main] .p.SpringBootRestServiceApplicationTests : Started SpringBootRestServiceApplicationTests in 9.307 seconds (JVM running for 11.054)
+2025-07-09 16:25:45.518  INFO 30224 --- [main] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 16:25:46.065  INFO 30224 --- [main] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 16:25:46.093  INFO 30224 --- [main] c.p.controller.LibraryController         : Book is deleted
+2025-07-09 16:25:46.280  INFO 30224 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 16:25:46.290  INFO 30224 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2025-07-09 16:25:46.292  INFO 30224 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-09 16:25:46.320  INFO 30224 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
