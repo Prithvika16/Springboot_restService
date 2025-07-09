@@ -133,3 +133,36 @@
 2025-07-09 11:08:10.885  INFO 27880 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2025-07-09 11:08:10.887  INFO 27880 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-07-09 11:08:10.956  INFO 27880 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-09 11:13:49.238  INFO 25892 --- [http-nio-8080-exec-9] c.p.controller.LibraryController         : Book already exists, skipping creation
+2025-07-09 11:22:46.451  INFO 25892 --- [RMI TCP Connection(97)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-07-09 11:22:46.547  INFO 25892 --- [RMI TCP Connection(97)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 11:22:46.557  INFO 25892 --- [RMI TCP Connection(97)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2025-07-09 11:22:46.560  INFO 25892 --- [RMI TCP Connection(97)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-09 11:22:46.596  INFO 25892 --- [RMI TCP Connection(97)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-09 11:41:53.681  INFO 18956 --- [main] .p.SpringBootRestServiceApplicationTests : Starting SpringBootRestServiceApplicationTests on ASCINLAP61557 with PID 18956 (started by prithvika.v in C:\Users\prithvika.v\eclipse-workspace\SpringBootRestService2)
+2025-07-09 11:41:53.681  INFO 18956 --- [main] .p.SpringBootRestServiceApplicationTests : The following profiles are active: @activatedProperties@
+2025-07-09 11:41:54.512  INFO 18956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2025-07-09 11:41:54.603  INFO 18956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 1 JPA repository interfaces.
+2025-07-09 11:41:55.431  INFO 18956 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2025-07-09 11:41:55.504  INFO 18956 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-09 11:41:55.575  INFO 18956 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2025-07-09 11:41:55.646  INFO 18956 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2025-07-09 11:41:55.800  WARN 18956 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-09 11:41:55.922  INFO 18956 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-09 11:41:56.534  INFO 18956 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-09 11:41:56.568  INFO 18956 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2025-07-09 11:41:56.649  INFO 18956 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-07-09 11:41:56.649  INFO 18956 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-07-09 11:41:56.675  INFO 18956 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 26 ms
+2025-07-09 11:41:56.696  INFO 18956 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2025-07-09 11:41:56.698  INFO 18956 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2025-07-09 11:41:56.707  INFO 18956 --- [main] .p.SpringBootRestServiceApplicationTests : Started SpringBootRestServiceApplicationTests in 3.367 seconds (JVM running for 4.631)
+2025-07-09 11:41:57.213  INFO 18956 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-09 11:41:57.228  INFO 18956 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 11:41:57.404  INFO 18956 --- [main] c.p.controller.LibraryController         : Book is deleted
+2025-07-09 11:41:57.421  INFO 18956 --- [main] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 11:41:57.472  INFO 18956 --- [main] c.p.controller.LibraryController         : Book does not exist, creating...
+2025-07-09 11:41:57.495  INFO 18956 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 11:41:57.496  INFO 18956 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2025-07-09 11:41:57.497  INFO 18956 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-09 11:41:57.508  INFO 18956 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
