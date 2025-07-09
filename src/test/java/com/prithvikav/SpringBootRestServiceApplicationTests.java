@@ -5,25 +5,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prithvika.SpringBootRestServiceApplication;
@@ -33,119 +34,112 @@ import com.prithvika.controller.LibraryController;
 import com.prithvika.repository.LibraryRepository;
 import com.prithvika.service.LibraryService;
 
-import java.util.ArrayList;
-
 @SpringBootTest(classes = SpringBootRestServiceApplication.class)
 @AutoConfigureMockMvc
 class SpringBootRestServiceApplicationTests {
 
     @Autowired
-    LibraryController con;
+    private LibraryController controller;
 
     @MockBean
-    LibraryRepository repository;
+    private LibraryRepository repository;
 
     @MockBean
-    LibraryService libraryService;
+    private LibraryService libraryService;
 
     @Autowired
     private MockMvc mockMvc;
 
+    private Library sampleBook;
+
     @BeforeEach
     public void setup() {
-        Library book = buildLibrary();
-        when(libraryService.getBookById(book.getId())).thenReturn(book);
-        when(repository.findAllByAuthor("Prithvika")).thenReturn(List.of(book, book));
+        sampleBook = buildLibrary();
+        when(libraryService.getBookById(sampleBook.getId())).thenReturn(sampleBook);
+        when(repository.findAllByAuthor("Prithvika")).thenReturn(List.of(sampleBook, sampleBook));
     }
 
     @Test
     void contextLoads() {}
 
     @Test
-    public void checkBuildIDLogic() {
-        LibraryService lib = new LibraryService();
-        String id = lib.buildId("ZMAN", 24);
-        assertEquals("OLDZMAN24", id);
-
-        String id1 = lib.buildId("MAN", 24);
-        assertEquals("MAN24", id1);
+    public void checkBuildIdLogic() {
+        LibraryService libService = new LibraryService();
+        assertEquals("OLDZMAN24", libService.buildId("ZMAN", 24));
+        assertEquals("MAN24", libService.buildId("MAN", 24));
     }
 
     @Test
-    public void addBookTest() {
-        Library lib = buildLibrary();
-        when(libraryService.buildId(lib.getIsbn(), lib.getAisle())).thenReturn(lib.getId());
-        when(libraryService.checkBookAlreadyExist(lib.getId())).thenReturn(false);
-        when(repository.save(any())).thenReturn(lib);
+    public void addBookDirectTest() {
+        when(libraryService.buildId(sampleBook.getIsbn(), sampleBook.getAisle())).thenReturn(sampleBook.getId());
+        when(libraryService.checkBookAlreadyExist(sampleBook.getId())).thenReturn(false);
+        when(repository.save(any())).thenReturn(sampleBook);
 
-        ResponseEntity<?> response = con.addBookImplementation(lib);
+        ResponseEntity<?> response = controller.addBookImplementation(sampleBook);
+
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
 
-        AddResponse ad = (AddResponse) response.getBody();
-        assertEquals(lib.getId(), ad.getId());
-        assertEquals("Success Book is Added", ad.getMsg());
+        AddResponse responseBody = (AddResponse) response.getBody();
+        assertEquals(sampleBook.getId(), responseBody.getId());
+        assertEquals("Success Book is Added", responseBody.getMsg());
     }
 
     @Test
-    public void addBookControllerTest() throws Exception {
-        Library lib = buildLibrary();
+    public void addBookApiTest() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        String jsonString = mapper.writeValueAsString(lib);
+        String bookJson = mapper.writeValueAsString(sampleBook);
 
-        when(libraryService.buildId(lib.getIsbn(), lib.getAisle())).thenReturn(lib.getId());
-        when(libraryService.checkBookAlreadyExist(lib.getId())).thenReturn(false);
-        when(repository.save(any())).thenReturn(lib);
+        when(libraryService.buildId(sampleBook.getIsbn(), sampleBook.getAisle())).thenReturn(sampleBook.getId());
+        when(libraryService.checkBookAlreadyExist(sampleBook.getId())).thenReturn(false);
+        when(repository.save(any())).thenReturn(sampleBook);
 
-        this.mockMvc.perform(post("/addBook")
+        mockMvc.perform(post("/addBook")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonString))
-            .andDo(print())
+                .content(bookJson))
+            .andDo(MockMvcResultHandlers.print())
             .andExpect(status().isCreated())
-            .andExpect(jsonPath("$.id").value(lib.getId()));
+            .andExpect(jsonPath("$.id").value(sampleBook.getId()));
     }
 
     @Test
     public void updateBookTest() throws Exception {
-        Library lib = buildLibrary();
-        Library updated = UpdateLibrary();
+        Library updatedBook = buildUpdatedLibrary();
         ObjectMapper mapper = new ObjectMapper();
-        String jsonString = mapper.writeValueAsString(updated);
+        String bookJson = mapper.writeValueAsString(updatedBook);
 
-        when(libraryService.getBookById(lib.getId())).thenReturn(lib);
-        when(repository.save(any())).thenReturn(updated);
+        when(repository.save(any())).thenReturn(updatedBook);
 
-        this.mockMvc.perform(put("/updateBook/" + lib.getId())
+        mockMvc.perform(put("/updateBook/" + sampleBook.getId())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonString))
-            .andDo(print())
+                .content(bookJson))
+            .andDo(MockMvcResultHandlers.print())
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.book_name").value("Boot"));
     }
 
     @Test
-    public void getAuthorNameBooksTest() throws Exception {
-        this.mockMvc.perform(get("/getBooks/author")
+    public void getBooksByAuthorTest() throws Exception {
+        mockMvc.perform(get("/getBooks/author")
                 .param("authorname", "Prithvika"))
-            .andDo(print())
+            .andDo(MockMvcResultHandlers.print())
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.length()", is(2)))
             .andExpect(jsonPath("$[0].author").value("Prithvika"));
     }
 
     @Test
-    public void deleteBookControllerTest() throws Exception {
-        when(libraryService.getBookById(any())).thenReturn(buildLibrary());
+    public void deleteBookTest() throws Exception {
         doNothing().when(repository).delete(any());
 
-        this.mockMvc.perform(delete("/deleteBook")
+        mockMvc.perform(delete("/deleteBook")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"id\" : \"sfe3b\"}"))
-            .andDo(print())
+            .andDo(MockMvcResultHandlers.print())
             .andExpect(status().isCreated())
             .andExpect(content().string("Book is deleted"));
     }
 
-    public Library buildLibrary() {
+    private Library buildLibrary() {
         Library lib = new Library();
         lib.setAisle(322);
         lib.setBook_name("Spring");
@@ -155,7 +149,7 @@ class SpringBootRestServiceApplicationTests {
         return lib;
     }
 
-    public Library UpdateLibrary() {
+    private Library buildUpdatedLibrary() {
         Library lib = new Library();
         lib.setAisle(322);
         lib.setBook_name("Boot");
