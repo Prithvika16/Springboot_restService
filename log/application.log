@@ -396,3 +396,4 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2025-07-09 14:20:04.516  INFO 32384 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-07-09 14:20:04.516  INFO 32384 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-07-09 14:20:04.532  INFO 32384 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2025-07-09 15:57:37.496  INFO 32384 --- [http-nio-8080-exec-5] c.p.controller.LibraryController         : Book does not exist, creating...
